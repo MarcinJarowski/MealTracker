@@ -5,8 +5,8 @@ import { MealsLibrary, Planner, ShoppingList, ProfilePage } from "./scenes";
 import {
   Route,
   BrowserRouter as Router,
-  Switch,
-  Redirect
+  Switch
+  // Redirect
 } from "react-router-dom";
 
 const { appWrapper } = styles;

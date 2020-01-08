@@ -5,6 +5,7 @@ import { DateNavigation, PieChartCircle } from "../../components/index";
 
 const ProfilePage = props => {
   const { wrapper, pieChartSection, pieChartWrapper, pieChartInfo } = styles;
+  const chartData = [25, 35, 40];
   return (
     <div className={wrapper}>
       <DateNavigation />
@@ -15,7 +16,7 @@ const ProfilePage = props => {
           <li>Białka</li>
         </ul>
         <div className={pieChartWrapper}>
-          <PieChartCircle />
+          <PieChartCircle chartData={chartData} />
         </div>
       </div>
     </div>

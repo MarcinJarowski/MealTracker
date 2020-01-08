@@ -79,7 +79,7 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath == "/planer" ? `${menuItemActive}` : `${menuItem}`
+                windowPath === "/planer" ? `${menuItemActive}` : `${menuItem}`
               }
               exact
               to="/planer"
@@ -94,7 +94,7 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath == "/zakupy" ? `${menuItemActive}` : `${menuItem}`
+                windowPath === "/zakupy" ? `${menuItemActive}` : `${menuItem}`
               }
               exact
               to="/zakupy"
@@ -109,7 +109,7 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath == "/posilki" ? `${menuItemActive}` : `${menuItem}`
+                windowPath === "/posilki" ? `${menuItemActive}` : `${menuItem}`
               }
               exact
               to="/posilki"
@@ -124,7 +124,7 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath == "/profil" ? `${menuItemActive}` : `${menuItem}`
+                windowPath === "/profil" ? `${menuItemActive}` : `${menuItem}`
               }
               exact
               to="/profil"
@@ -146,5 +146,5 @@ const Navbar = props => {
     </div>
   );
 };
-// `${navbarOpenStatus ? classNameOpen : navbarMenuExpanded}`;
+
 export default withRouter(Navbar);

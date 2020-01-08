@@ -9,7 +9,7 @@
   margin: auto;
 }
 .pieChartWrapper {
-  max-width: 140px;
+  max-width: 150px;
 }
 .pieChartInfo {
   max-width: 140px;
@@ -25,7 +25,6 @@
   position: relative;
   height: 20px;
   padding-left: 20px;
-  /* margin: 10px 0; */
 }
 .pieChartInfo li::before {
   content: "";
@@ -38,7 +37,6 @@
   display: inline-block;
   top: 5px;
   left: 0;
-  /* width: 1em; */
   font-size: 42px;
   line-height: 21px;
 }
