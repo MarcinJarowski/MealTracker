@@ -1,0 +1,135 @@
+span {
+  max-width: 35px;
+  max-height: 35px;
+}
+.navbarWrapper {
+  position: relative;
+}
+.navbarTopBar {
+  max-height: 10vh;
+  min-height: 10vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  justify-content: space-between;
+  border-bottom: 1px solid #000000;
+  position: fixed;
+  z-index: 2;
+}
+.nameAndPhoto {
+  display: flex;
+  align-items: center;
+}
+.name {
+  margin: 10px;
+}
+.menuIcon,
+.photoWrapper {
+  max-width: 35px;
+  max-height: 35px;
+}
+.navbarMenuExpanded {
+  /* display: none; */
+  min-width: 80vw;
+  max-width: 80vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: 3;
+  transform: translate(-100vw);
+  transition: all 0.3s ease-in-out;
+}
+.navbarMenuExpandedTrue {
+  min-width: 80vw;
+  max-width: 80vw;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: 3;
+  transform: translate(0);
+  transition: all 0.3s ease-in-out;
+}
+.navbarMenuExpandedTrue::after {
+  content: "";
+  width: 20vw;
+  height: 100vh;
+  background-color: rgba(186, 220, 255, 1);
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: -20vw;
+}
+.navbarMenuExpandedTopBar {
+  max-width: 70vw;
+  margin: 0 5vw;
+  height: 10vh;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2vw;
+}
+.appName {
+  font-size: 20px;
+  font-weight: 600;
+}
+.menu {
+  margin-top: 9vw;
+  margin-left: 5vw;
+  list-style: none;
+  padding: 0;
+}
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #707070;
+  margin-bottom: 20px;
+  min-width: 110px;
+  max-width: 110px;
+  height: 45px;
+  font-weight: 500;
+}
+.menuItemActive {
+  color: rgba(54, 154, 255, 0.75);
+  border-bottom: 0.5px solid rgba(54, 154, 255, 0.75);
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  min-width: 110px;
+  max-width: 110px;
+  height: 45px;
+  font-weight: 500;
+}
+.menuItemIcon {
+  margin-right: 15px;
+}
+.logOutButton {
+  margin: 0 auto;
+  margin-top: 20vh;
+  min-width: 150px;
+  min-height: 40px;
+  outline: none;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(186, 220, 255, 0.75);
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+.logOutIcon {
+  margin-right: 15px;
+}
