@@ -1,0 +1,13 @@
+.pieChartWrapper {
+  position: relative;
+  max-width: 140px;
+}
+.kcalNo {
+  position: absolute;
+  text-align: center;
+  height: 20px;
+  width: 80px;
+  top: 60px;
+  left: 30px;
+  font-weight: bold;
+}

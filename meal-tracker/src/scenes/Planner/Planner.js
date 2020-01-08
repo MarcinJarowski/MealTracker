@@ -1,13 +1,23 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./Planner.module.css";
-import { DateNavigation } from "../../components/index";
+import { DateNavigation, PieChartCircle } from "../../components/index";
 
 const ProfilePage = props => {
-  const { wrapper, dateNavigationWrapper } = styles;
+  const { wrapper, pieChartSection, pieChartWrapper, pieChartInfo } = styles;
   return (
     <div className={wrapper}>
-      <DateNavigation className={dateNavigationWrapper} />
+      <DateNavigation />
+      <div className={pieChartSection}>
+        <ul className={pieChartInfo}>
+          <li>Węglowodany</li>
+          <li>Tłuszcze</li>
+          <li>Białka</li>
+        </ul>
+        <div className={pieChartWrapper}>
+          <PieChartCircle />
+        </div>
+      </div>
     </div>
   );
 };
