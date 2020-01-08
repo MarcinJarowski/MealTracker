@@ -7,7 +7,7 @@ import {
   KeyboardBackspaceIcon,
   KitchenIcon,
   ShoppingCartIcon,
-  LocalLibraryIcon,
+  MenuBookIcon,
   PowerSettingsNewIcon
 } from "../icons/icons.js";
 
@@ -115,7 +115,7 @@ const Navbar = props => {
               to="/posilki"
             >
               <span className={menuItemIcon}>
-                <LocalLibraryIcon fontSize="large" />
+                <MenuBookIcon fontSize="large" />
               </span>
               <p className={menuItemName}>Posiłki</p>
             </NavLink>

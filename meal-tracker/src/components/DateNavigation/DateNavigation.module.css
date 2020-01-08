@@ -1,0 +1,25 @@
+.mainContainer {
+  max-width: 90vw;
+  border-bottom: 0.5px solid #c2c2c2;
+  height: 8vh;
+  color: black;
+  margin: 12px auto;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.dateBox {
+  display: flex;
+}
+.selectedDay {
+  display: flex;
+  justify-content: space-between;
+}
+.datePTag {
+  min-width: 30vw;
+}
+.arrowLeft,
+.arrowRight {
+  max-height: 35px;
+}

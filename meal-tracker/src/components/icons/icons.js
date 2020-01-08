@@ -5,6 +5,7 @@ import KitchenIcon from "@material-ui/icons/Kitchen";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import LocalLibraryIcon from "@material-ui/icons/LocalLibrary";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 
 export {
   MenuIcon,
@@ -13,5 +14,6 @@ export {
   KitchenIcon,
   ShoppingCartIcon,
   LocalLibraryIcon,
-  PowerSettingsNewIcon
+  PowerSettingsNewIcon,
+  MenuBookIcon
 };

@@ -1,11 +1,12 @@
-span {
-  max-width: 35px;
-  max-height: 35px;
-}
 .navbarWrapper {
   position: relative;
 }
+.navbarWrapper span {
+  max-width: 35px;
+  max-height: 35px;
+}
 .navbarTopBar {
+  background-color: white;
   max-height: 10vh;
   min-height: 10vh;
   min-width: 100vw;
@@ -15,7 +16,9 @@ span {
   padding: 0 5vw;
   justify-content: space-between;
   border-bottom: 1px solid #000000;
-  position: fixed;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   z-index: 2;
 }
 .nameAndPhoto {
@@ -42,7 +45,7 @@ span {
   background-color: white;
   z-index: 3;
   transform: translate(-100vw);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 .navbarMenuExpandedTrue {
   min-width: 80vw;
