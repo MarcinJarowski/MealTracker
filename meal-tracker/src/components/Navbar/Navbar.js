@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink, withRouter } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import {
   MenuIcon,
@@ -9,7 +10,7 @@ import {
   LocalLibraryIcon,
   PowerSettingsNewIcon
 } from "../icons/icons.js";
-// style={{ color: "blue" }} dodawanie do icon styli
+
 const Navbar = props => {
   const {
     navbarTopBar,
@@ -34,8 +35,13 @@ const Navbar = props => {
   } = styles;
 
   const [navbarOpenStatus, setNavbarOpenStatus] = useState(false);
-  useEffect(() => {}, [navbarOpenStatus]);
-  //   const classNameOpen = `${navbarMenuExpanded} ${navbarMenuExpandedTrue}`;
+  const [windowPath, setWindowPath] = useState(props.location.pathname);
+
+  useEffect(() => {
+    const path = props.location.pathname;
+    console.log(path);
+    setWindowPath(path);
+  }, [props.location.pathname]);
   return (
     <div className={navbarWrapper}>
       <div className={navbarTopBar}>
@@ -56,7 +62,7 @@ const Navbar = props => {
       </div>
       <div
         className={`${
-          navbarOpenStatus ? navbarMenuExpandedTrue : navbarMenuExpanded
+          navbarOpenStatus ? navbarMenuExpandedTrue : `${navbarMenuExpanded}`
         }`}
       >
         <div className={navbarMenuExpandedTopBar}>
@@ -69,34 +75,70 @@ const Navbar = props => {
           <p className={appName}>MealTracker</p>
         </div>
         <ul className={menu}>
-          <li className={menuItemActive}>
-            <span className={menuItemIcon}>
-              <KitchenIcon fontSize="large" />
-            </span>
-            <p className={menuItemName}>Planer</p>
+          <li>
+            <NavLink
+              onClick={() => setNavbarOpenStatus(false)}
+              className={
+                windowPath == "/planer" ? `${menuItemActive}` : `${menuItem}`
+              }
+              exact
+              to="/planer"
+            >
+              <span className={menuItemIcon}>
+                <KitchenIcon fontSize="large" />
+              </span>
+              <p className={menuItemName}>Planer</p>
+            </NavLink>
           </li>
-          <li className={menuItem}>
-            <span className={menuItemIcon}>
-              <ShoppingCartIcon fontSize="large" />
-            </span>
-            <p className={menuItemName}>Zakupy</p>
+          <li>
+            <NavLink
+              onClick={() => setNavbarOpenStatus(false)}
+              className={
+                windowPath == "/zakupy" ? `${menuItemActive}` : `${menuItem}`
+              }
+              exact
+              to="/zakupy"
+            >
+              <span className={menuItemIcon}>
+                <ShoppingCartIcon fontSize="large" />
+              </span>
+              <p className={menuItemName}>Zakupy</p>
+            </NavLink>
           </li>
-          <li className={menuItem}>
-            <span className={menuItemIcon}>
-              <LocalLibraryIcon fontSize="large" />
-            </span>
-            <p className={menuItemName}>Posiłki</p>
+          <li>
+            <NavLink
+              onClick={() => setNavbarOpenStatus(false)}
+              className={
+                windowPath == "/posilki" ? `${menuItemActive}` : `${menuItem}`
+              }
+              exact
+              to="/posilki"
+            >
+              <span className={menuItemIcon}>
+                <LocalLibraryIcon fontSize="large" />
+              </span>
+              <p className={menuItemName}>Posiłki</p>
+            </NavLink>
           </li>
-          <li className={menuItem}>
-            <span className={menuItemIcon}>
-              <AccountCircle fontSize="large" />
-            </span>
-            <p className={menuItemName}>Profil</p>
+          <li>
+            <NavLink
+              onClick={() => setNavbarOpenStatus(false)}
+              className={
+                windowPath == "/profil" ? `${menuItemActive}` : `${menuItem}`
+              }
+              exact
+              to="/profil"
+            >
+              <span className={menuItemIcon}>
+                <AccountCircle fontSize="large" />
+              </span>
+              <p className={menuItemName}>Profil</p>
+            </NavLink>
           </li>
         </ul>
         <button className={logOutButton}>
           <span className={logOutIcon}>
-            <PowerSettingsNewIcon fontSize="medium" />
+            <PowerSettingsNewIcon fontSize="large" />
           </span>
           <p className={logOutText}>Wyloguj</p>
         </button>
@@ -105,4 +147,4 @@ const Navbar = props => {
   );
 };
 // `${navbarOpenStatus ? classNameOpen : navbarMenuExpanded}`;
-export default Navbar;
+export default withRouter(Navbar);
