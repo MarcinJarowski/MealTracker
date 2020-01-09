@@ -17,9 +17,7 @@ const Planner = props => {
   console.log(props);
   console.log(mealTypesNames);
   const handleButtonClick = mealTypeName => {
-    props.history.push(
-      props.location.pathname + "/pora-posilku?" + mealTypeName.toLowerCase()
-    );
+    props.history.push(props.location.pathname + "/pora-posilku");
     setMealType(mealTypeName);
   };
   const {

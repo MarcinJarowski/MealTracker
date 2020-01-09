@@ -10,6 +10,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CreateIcon from "@material-ui/icons/Create";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
+import DeleteIcon from "@material-ui/icons/Delete";
 export {
   ControlPointIcon,
   MenuIcon,
@@ -22,5 +23,6 @@ export {
   MenuBookIcon,
   DoneIcon,
   HelpOutlineIcon,
-  CreateIcon
+  CreateIcon,
+  DeleteIcon
 };
