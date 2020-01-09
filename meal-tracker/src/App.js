@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "./index.css";
 import { Navbar } from "./components/index";
-import { MealsLibrary, Planner, ShoppingList, ProfilePage } from "./scenes";
+import {
+  MealsLibrary,
+  Planner,
+  ShoppingList,
+  ProfilePage,
+  MealTypeView
+} from "./scenes";
 import {
   Route,
   BrowserRouter as Router,
@@ -19,6 +25,9 @@ const App = props => {
         <Switch>
           <Route exact path="/planer">
             <Planner />
+          </Route>
+          <Route exact path="/planer/pora-posilku">
+            <MealTypeView />
           </Route>
           <Route exact path="/posilki">
             <MealsLibrary />

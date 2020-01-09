@@ -3,7 +3,6 @@ import PieChart from "react-minimal-pie-chart";
 import styles from "./PieChart.module.css";
 
 const PieChartCircle = props => {
-  console.log(props);
   const { pieChartWrapper, kcalNo } = styles;
   const chartData = props.chartData;
   return (

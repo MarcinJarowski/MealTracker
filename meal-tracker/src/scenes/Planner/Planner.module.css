@@ -46,3 +46,30 @@
 .pieChartInfo li:nth-of-type(3)::before {
   background-color: #47b39c;
 }
+.buttonsWrapper {
+  margin-top: 7vh;
+}
+.plannerBtn {
+  width: 80vw;
+  margin: auto;
+  height: 42px;
+  display: flex;
+  padding: 0 5vw;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  outline: none;
+  background-color: white;
+  border: 1px solid #c2c2c2;
+  margin-bottom: 18px;
+}
+.btnIconOne {
+  color: #2ad385;
+}
+.btnIconTwo {
+  width: 35px;
+}
+.btnText {
+  min-width: 25vw;
+  text-align: center;
+}

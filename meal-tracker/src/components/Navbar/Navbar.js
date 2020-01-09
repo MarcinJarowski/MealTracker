@@ -39,7 +39,6 @@ const Navbar = props => {
 
   useEffect(() => {
     const path = props.location.pathname;
-    console.log(path);
     setWindowPath(path);
   }, [props.location.pathname]);
   return (
@@ -79,7 +78,9 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath === "/planer" ? `${menuItemActive}` : `${menuItem}`
+                windowPath.includes("/planer")
+                  ? `${menuItemActive}`
+                  : `${menuItem}`
               }
               exact
               to="/planer"
@@ -94,7 +95,9 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath === "/zakupy" ? `${menuItemActive}` : `${menuItem}`
+                windowPath.includes("/zakupy")
+                  ? `${menuItemActive}`
+                  : `${menuItem}`
               }
               exact
               to="/zakupy"
@@ -109,7 +112,9 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath === "/posilki" ? `${menuItemActive}` : `${menuItem}`
+                windowPath.includes("/posilki")
+                  ? `${menuItemActive}`
+                  : `${menuItem}`
               }
               exact
               to="/posilki"
@@ -124,7 +129,9 @@ const Navbar = props => {
             <NavLink
               onClick={() => setNavbarOpenStatus(false)}
               className={
-                windowPath === "/profil" ? `${menuItemActive}` : `${menuItem}`
+                windowPath.includes("/profil")
+                  ? `${menuItemActive}`
+                  : `${menuItem}`
               }
               exact
               to="/profil"

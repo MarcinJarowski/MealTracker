@@ -1,0 +1,27 @@
+.wrapper {
+  min-height: 100vh;
+  padding-top: 10vh;
+}
+.topBar {
+  max-width: 90vw;
+  margin: 0 auto;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.goBack {
+  width: 35px;
+  height: 35px;
+}
+.mealTypeNameClass {
+  min-width: 40vw;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.wholeMealTypeKcalClass {
+  color: #369aff;
+  font-size: 20px;
+  font-weight: bold;
+}
