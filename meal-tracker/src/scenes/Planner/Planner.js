@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./Planner.module.css";
-import { ButtonsContext } from "../../contexts/buttonsContext";
 
 import {
   DoneIcon,
@@ -11,9 +10,10 @@ import {
 } from "../../components/icons/icons.js";
 
 import { DateNavigation, PieChartCircle } from "../../components/index";
+import { MealsContext } from "../../contexts/mealsContext";
 
 const Planner = props => {
-  const { setMealType, mealTypesNames } = useContext(ButtonsContext);
+  const { setMealType, mealTypesNames } = useContext(MealsContext);
   console.log(props);
   console.log(mealTypesNames);
   const handleEditClick = mealTypeName => {

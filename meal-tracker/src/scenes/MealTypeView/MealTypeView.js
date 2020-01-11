@@ -7,10 +7,11 @@ import {
   KeyboardBackspaceIcon,
   ControlPointIcon
 } from "../../components/icons/icons";
-import { ButtonsContext } from "../../contexts/buttonsContext";
+import { MealsContext } from "../../contexts/mealsContext";
 
 const MealTypeView = props => {
-  const { mealType } = useContext(ButtonsContext);
+  const { mealType } = useContext(MealsContext);
+  console.log(mealType);
   //przefiltrowane np sniadania na 10.01.2020
   const mealsOfTypeForDay = [
     {

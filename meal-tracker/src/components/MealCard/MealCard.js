@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./MealCard.module.css";
 import uuid from "uuid";
 
 import { DeleteIcon } from "../../components/icons/icons";
 import mealPicPlaceholder from "../../images/diet.png";
+import { Refresh } from "@material-ui/icons";
 
 const MealCard = props => {
   const {
-    mealName: mealName1 = "Przykładowa nazwa",
+    mealName: mealName1 = "Przykładowy posiłek",
     ingredientsArray: ingredientsArray1 = ["składnik", "składnik", "składnik"],
     percetageArray: percetageArray1 = [30, 30, 40],
-    kcalValue: kcalValue1 = [333]
+    kcalValue: kcalValue1 = [365],
+    showBinIcon = false
   } = props;
   //   console.log(mealName1, ingredientsArray1, percetageArray1, kcalValue1);
   const {
@@ -25,17 +27,22 @@ const MealCard = props => {
     ingredientClass,
     fatCarbsWheyLi
   } = styles;
+  useEffect(() => {
+    console.log("heheh");
+  }, [props]);
   return (
     <div>
       <div className={mealCard}>
-        <span
-          className={binIcon}
-          onClick={e => {
-            //   wyniesc stan wyzej i usuwac z posilkow
-          }}
-        >
-          <DeleteIcon fontSize="large" />
-        </span>
+        {showBinIcon ? (
+          <span
+            className={binIcon}
+            onClick={e => {
+              //   wyniesc stan wyzej i usuwac z posilkow
+            }}
+          >
+            <DeleteIcon fontSize="large" />
+          </span>
+        ) : null}
         <div className={mealImgWrapper}>
           <img
             className={mealImg}

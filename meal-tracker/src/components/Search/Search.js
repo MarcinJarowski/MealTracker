@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { MealsContext } from "../../contexts/mealsContext";
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import NativeSelect from "@material-ui/core/NativeSelect";
+import uuid from "uuid";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -17,45 +19,57 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Search() {
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    age: "",
-    name: "hai"
+  const {
+    breakfastMeals,
+    selectedMealId,
+    setSelectedMealId,
+    mealType
+  } = useContext(MealsContext);
+  const dataForSelect = breakfastMeals.map(meal => {
+    const { mealId, mealName } = meal;
+    return { mealId, mealName };
   });
+  const classes = useStyles();
 
-  const inputLabel = React.useRef(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
-  React.useEffect(() => {
+  const inputLabel = useRef(null);
+  const [labelWidth, setLabelWidth] = useState(0);
+
+  useEffect(() => {
+    // console.log(selectedMealId);
+  }, [selectedMealId]);
+
+  useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
-  const handleChange = name => event => {
-    setState({
-      ...state,
-      [name]: event.target.value
-    });
+  const handleChange = mealId => event => {
+    setSelectedMealId(event.target.value);
   };
 
   return (
     <div>
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel ref={inputLabel} htmlFor="outlined-age-native-simple">
-          Obiad
+          {mealType}
         </InputLabel>
         <Select
           native
-          value={state.age}
-          onChange={handleChange("age")}
+          value={selectedMealId}
+          onChange={handleChange()}
           labelWidth={labelWidth}
           inputProps={{
             name: "age",
             id: "outlined-age-native-simple"
           }}
         >
-          <option value="" />
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option>
+          {dataForSelect.map(meal => {
+            const { mealId, mealName } = meal;
+            return (
+              <option key={uuid()} value={mealId}>
+                {mealName}
+              </option>
+            );
+          })}
         </Select>
       </FormControl>
     </div>

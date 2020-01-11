@@ -4,13 +4,14 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import DateContextProvider from "./contexts/dateContext";
-import ButtonsContextProvider from "./contexts/buttonsContext";
+import MealsContextProvider from "./contexts/mealsContext";
+
 ReactDOM.render(
-  <ButtonsContextProvider>
-    <DateContextProvider>
+  <DateContextProvider>
+    <MealsContextProvider>
       <App />
-    </DateContextProvider>
-  </ButtonsContextProvider>,
+    </MealsContextProvider>
+  </DateContextProvider>,
 
   document.getElementById("root")
 );

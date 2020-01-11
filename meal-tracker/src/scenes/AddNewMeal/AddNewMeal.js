@@ -7,82 +7,26 @@ import {
   KeyboardBackspaceIcon,
   SearchIcon
 } from "../../components/icons/icons";
-import { ButtonsContext } from "../../contexts/buttonsContext";
+import { MealsContext } from "../../contexts/mealsContext";
 
 const AddNewMeal = props => {
-  const { mealType } = useContext(ButtonsContext);
+  const { selectedMealObject, mealType } = useContext(MealsContext);
+  const [isMealSelected, setMealSelectedBool] = useState(false);
+
+  useEffect(() => {
+    if (selectedMealObject[0] !== undefined) {
+      setMealSelectedBool(true);
+    }
+  }, [selectedMealObject]);
+
   const [mealTypeName, setMealTypeName] = useState(mealType.toLowerCase());
+
   useEffect(() => {
     if (mealType.toLowerCase() === "kolacja") {
       setMealTypeName("kolację");
     }
   });
-  console.log(mealTypeName);
-  const mealsOfTypeAll = [
-    {
-      mealName: "Jajecznica",
-      ingredientsArray: ["4 jajka", "cebula", "pomidory", "olej"],
-      percetageArray: [25, 40, 30],
-      kcalValue: 351,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    },
-    {
-      mealName: "Jajecznica",
-      ingredientsArray: ["4 jajka", "cebula", "pomidory", "olej"],
-      percetageArray: [25, 40, 30],
-      kcalValue: 351,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    },
-    {
-      mealName: "Jajecznica",
-      ingredientsArray: ["4 jajka", "cebula", "pomidory", "olej"],
-      percetageArray: [25, 40, 30],
-      kcalValue: 351,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    },
-    {
-      mealName: "Płatki owsiane",
-      ingredientsArray: ["Płatki 100g", "mleko", "miód"],
-      percetageArray: [60, 20, 20],
-      kcalValue: 462,
-      mealId: uuid()
-    }
-  ];
+  // console.log(mealTypeName);
   const handleArrowClick = event => {
     props.history.goBack();
   };
@@ -100,6 +44,19 @@ const AddNewMeal = props => {
         </span>
       </div>
       <Search />
+      <div>
+        {isMealSelected ? (
+          <MealCard
+            key={uuid()}
+            mealName={selectedMealObject[0].mealName}
+            ingredientsArray={selectedMealObject[0].ingredientsArray}
+            percetageArray={selectedMealObject[0].percetageArray}
+            kcalValue={selectedMealObject[0].kcalValue}
+          />
+        ) : (
+          <MealCard />
+        )}
+      </div>
     </div>
   );
 };
