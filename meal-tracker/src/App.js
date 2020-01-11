@@ -6,7 +6,8 @@ import {
   Planner,
   ShoppingList,
   ProfilePage,
-  MealTypeView
+  MealTypeView,
+  AddNewMeal
 } from "./scenes";
 import {
   Route,
@@ -28,6 +29,9 @@ const App = props => {
           </Route>
           <Route exact path="/planer/pora-posilku">
             <MealTypeView />
+          </Route>
+          <Route exact path="/planer/dodaj-posilek">
+            <AddNewMeal />
           </Route>
           <Route exact path="/posilki">
             <MealsLibrary />

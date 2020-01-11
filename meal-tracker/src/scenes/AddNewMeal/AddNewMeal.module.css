@@ -8,25 +8,25 @@
   height: 10vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .goBack {
   width: 35px;
   height: 35px;
 }
 .mealTypeNameClass {
-  min-width: 40vw;
-  text-align: left;
+  justify-content: center;
+  min-width: calc(90vw - 35px);
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
+  overflow: hidden;
 }
+.mealTypeNameClass p {
+  margin-right: 35px;
+}
+
 .wholeMealTypeKcalClass {
   color: #369aff;
   font-size: 20px;
   font-weight: bold;
-}
-.plusIcon {
-  margin: 5vw auto;
-  color: #369aff;
-  max-width: 35px;
 }

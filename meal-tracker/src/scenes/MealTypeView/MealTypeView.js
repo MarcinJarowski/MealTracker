@@ -15,7 +15,7 @@ const MealTypeView = props => {
   const mealsOfTypeForDay = [
     {
       mealName: "Jajecznica",
-      ingredientsArray: ["4 jajka", "cebula", "pomidory"],
+      ingredientsArray: ["4 jajka", "cebula", "pomidory", "olej"],
       percetageArray: [25, 40, 30],
       kcalValue: 351,
       mealId: uuid()

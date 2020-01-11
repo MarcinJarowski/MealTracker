@@ -1,0 +1,13 @@
+.searchWrapper {
+  min-width: 90vw;
+  max-width: 90vw;
+  margin: 0 5vw;
+  border: 1px solid red;
+}
+.searchInput {
+  height: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(186, 220, 255, 0.75);
+
+  border: none;
+}

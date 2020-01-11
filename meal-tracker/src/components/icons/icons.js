@@ -11,6 +11,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CreateIcon from "@material-ui/icons/Create";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
 import DeleteIcon from "@material-ui/icons/Delete";
+import SearchIcon from "@material-ui/icons/Search";
 export {
   ControlPointIcon,
   MenuIcon,
@@ -24,5 +25,6 @@ export {
   DoneIcon,
   HelpOutlineIcon,
   CreateIcon,
-  DeleteIcon
+  DeleteIcon,
+  SearchIcon
 };

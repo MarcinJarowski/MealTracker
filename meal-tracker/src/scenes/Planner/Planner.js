@@ -16,8 +16,12 @@ const Planner = props => {
   const { setMealType, mealTypesNames } = useContext(ButtonsContext);
   console.log(props);
   console.log(mealTypesNames);
-  const handleButtonClick = mealTypeName => {
+  const handleEditClick = mealTypeName => {
     props.history.push(props.location.pathname + "/pora-posilku");
+    setMealType(mealTypeName);
+  };
+  const handleAddClick = mealTypeName => {
+    props.history.push(props.location.pathname + "/dodaj-posilek");
     setMealType(mealTypeName);
   };
   const {
@@ -33,8 +37,8 @@ const Planner = props => {
   } = styles;
   const chartData = [25, 35, 40];
   const breakfast = ["randomdata"];
-  const dinner = ["as"];
-  const supper = ["asd"];
+  const dinner = [];
+  const supper = [];
 
   return (
     <div className={wrapper}>
@@ -65,12 +69,15 @@ const Planner = props => {
           {breakfast.length ? (
             <span
               className={btnIconTwo}
-              onClick={() => handleButtonClick(mealTypesNames[0])}
+              onClick={() => handleEditClick(mealTypesNames[0])}
             >
               <CreateIcon />
             </span>
           ) : (
-            <span className={btnIconTwo}>
+            <span
+              className={btnIconTwo}
+              onClick={() => handleAddClick(mealTypesNames[0])}
+            >
               <ControlPointIcon />
             </span>
           )}
@@ -88,12 +95,15 @@ const Planner = props => {
           {dinner.length ? (
             <span
               className={btnIconTwo}
-              onClick={() => handleButtonClick(mealTypesNames[1])}
+              onClick={() => handleEditClick(mealTypesNames[1])}
             >
               <CreateIcon />
             </span>
           ) : (
-            <span className={btnIconTwo}>
+            <span
+              className={btnIconTwo}
+              onClick={() => handleAddClick(mealTypesNames[1])}
+            >
               <ControlPointIcon />
             </span>
           )}
@@ -111,12 +121,15 @@ const Planner = props => {
           {supper.length ? (
             <span
               className={btnIconTwo}
-              onClick={() => handleButtonClick(mealTypesNames[2])}
+              onClick={() => handleEditClick(mealTypesNames[2])}
             >
               <CreateIcon />
             </span>
           ) : (
-            <span className={btnIconTwo}>
+            <span
+              className={btnIconTwo}
+              onClick={() => handleAddClick(mealTypesNames[2])}
+            >
               <ControlPointIcon />
             </span>
           )}
