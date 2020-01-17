@@ -3,20 +3,23 @@ import { withRouter } from "react-router-dom";
 import styles from "./AddNewMeal.module.css";
 import uuid from "uuid";
 import { MealCard, Search } from "../../components/index";
-import { KeyboardBackspaceIcon } from "../../components/icons/icons";
+import {
+  KeyboardBackspaceIcon,
+  SearchIcon
+} from "../../components/icons/icons";
 import { MealsContext } from "../../contexts/mealsContext";
 
 const AddNewMeal = props => {
   const { selectedMealObject, mealType } = useContext(MealsContext);
   const [isMealSelected, setMealSelectedBool] = useState(false);
+  const [mealTypeName, setMealTypeName] = useState(mealType.toLowerCase());
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     if (selectedMealObject[0] !== undefined) {
       setMealSelectedBool(true);
     }
   }, [selectedMealObject]);
-
-  const [mealTypeName, setMealTypeName] = useState(mealType.toLowerCase());
 
   useEffect(() => {
     if (mealType.toLowerCase() === "kolacja") {
@@ -27,6 +30,9 @@ const AddNewMeal = props => {
   const handleArrowClick = event => {
     return props.history.goBack();
   };
+  const handleInputChange = value => {
+    setInputValue(value);
+  };
 
   const {
     wrapper,
@@ -34,7 +40,10 @@ const AddNewMeal = props => {
     goBack,
     mealTypeNameClass,
     makeMealBtn,
-    searchOrAddWrapper
+    searchOrAddWrapper,
+    searchInput,
+    search,
+    searchIconClass
   } = styles;
 
   return (
@@ -48,7 +57,19 @@ const AddNewMeal = props => {
         </span>
       </div>
       <div className={searchOrAddWrapper}>
-        <Search />
+        {/* <Search /> */}
+        <div className={search}>
+          <input
+            className={searchInput}
+            value={inputValue}
+            placeholder="Wyszukaj..."
+            onChange={e => handleInputChange(e.target.value)}
+          />
+          <span className={searchIconClass}>
+            <SearchIcon />
+          </span>
+        </div>
+
         <p>lub</p>
         <button className={makeMealBtn}>Stwórz własny posiłek</button>
       </div>
