@@ -3,10 +3,7 @@ import { withRouter } from "react-router-dom";
 import styles from "./AddNewMeal.module.css";
 import uuid from "uuid";
 import { MealCard, Search } from "../../components/index";
-import {
-  KeyboardBackspaceIcon,
-  SearchIcon
-} from "../../components/icons/icons";
+import { KeyboardBackspaceIcon } from "../../components/icons/icons";
 import { MealsContext } from "../../contexts/mealsContext";
 
 const AddNewMeal = props => {
@@ -25,13 +22,20 @@ const AddNewMeal = props => {
     if (mealType.toLowerCase() === "kolacja") {
       setMealTypeName("kolację");
     }
-  });
+  }, [mealType]);
   // console.log(mealTypeName);
   const handleArrowClick = event => {
-    props.history.goBack();
+    return props.history.goBack();
   };
 
-  const { wrapper, topBar, goBack, mealTypeNameClass } = styles;
+  const {
+    wrapper,
+    topBar,
+    goBack,
+    mealTypeNameClass,
+    makeMealBtn,
+    searchOrAddWrapper
+  } = styles;
 
   return (
     <div className={wrapper}>
@@ -43,7 +47,11 @@ const AddNewMeal = props => {
           <p>Dodaj {mealTypeName}</p>
         </span>
       </div>
-      <Search />
+      <div className={searchOrAddWrapper}>
+        <Search />
+        <p>lub</p>
+        <button className={makeMealBtn}>Stwórz własny posiłek</button>
+      </div>
       <div>
         {isMealSelected ? (
           <MealCard
@@ -57,6 +65,7 @@ const AddNewMeal = props => {
           <MealCard />
         )}
       </div>
+      <button className={makeMealBtn}>Dodaj do planu</button>
     </div>
   );
 };

@@ -78,6 +78,7 @@ const MealTypeView = props => {
               } = object;
               return (
                 <MealCard
+                  showBinIcon={true}
                   mealName={mealName1}
                   ingredientsArray={ingredientsArray1}
                   percetageArray={percetageArray1}

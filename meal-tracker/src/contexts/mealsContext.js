@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect } from "react";
-import moment from "moment";
+// import moment from "moment";
 import uuid from "uuid";
 
 export const MealsContext = createContext();
@@ -31,9 +31,9 @@ const MealsContextProvider = props => {
   ];
   const [breakfastMeals, setBreakFastMeals] = useState(meals);
   /////////////////////////////////////////////////////////////
-  const addNewMeal = newMeal => {
-    const updatedBreakfastMeals = [...breakfastMeals, newMeal];
-  };
+  // const addNewMeal = newMeal => {
+  //   const updatedBreakfastMeals = [...breakfastMeals, newMeal];
+  // };
   ////////////////////////////////////
   const [mealType, setMealType] = useState("");
 
@@ -45,7 +45,7 @@ const MealsContextProvider = props => {
   const [selectedMealObject, setSelectedMealObject] = useState({});
   const findSelectedMeal = () => {
     const mealObject = breakfastMeals.filter(meal => {
-      if (meal.mealId == selectedMealId) {
+      if (meal.mealId === selectedMealId) {
         return meal;
       }
     });

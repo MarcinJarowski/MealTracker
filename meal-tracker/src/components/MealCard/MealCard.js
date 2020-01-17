@@ -4,7 +4,6 @@ import uuid from "uuid";
 
 import { DeleteIcon } from "../../components/icons/icons";
 import mealPicPlaceholder from "../../images/diet.png";
-import { Refresh } from "@material-ui/icons";
 
 const MealCard = props => {
   const {
