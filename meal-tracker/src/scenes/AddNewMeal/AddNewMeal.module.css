@@ -74,6 +74,7 @@
   height: 11vw;
   display: flex;
   align-items: center;
+  transition: all 0.2 ease-in-out;
 }
 .searchWrapper {
   display: flex;
@@ -93,18 +94,41 @@
   margin-top: 10px;
   padding: 5vw;
   overflow: scroll;
+  position: absolute;
+  top: 36vw;
+  left: 5vw;
   min-height: 0;
   max-height: 0;
   height: 0;
-  display: none;
-  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  transition: top 0.4s ease-in-out;
+}
+.boxShadow {
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s ease-in-out;
 }
 .searchListWrapperExpanded {
+  box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 46vw;
+  left: 5vw;
   display: block;
   max-width: 90vw;
   max-height: 90vw;
   min-width: 90vw;
   min-height: 90vw;
+  /* border: 1px solid #c2c2c2; */
+  border-radius: 12px;
+  z-index: 2;
+  margin-top: 10px;
+  padding: 5vw;
+  overflow: scroll;
+  /* visibility: visible; */
+  transition: all 0.2s ease-in-out;
+
+  /* transition: visibility 1s ease-in-out; */
+  background-color: white;
 }
 .searchList {
   list-style-type: none;
@@ -123,6 +147,9 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
+}
+.searchMealName {
+  max-width: 40vw;
 }
 .imageWrapper {
   max-height: 12vw;
