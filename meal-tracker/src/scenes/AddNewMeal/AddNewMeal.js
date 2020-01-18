@@ -2,18 +2,21 @@ import React, { useState, useContext, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./AddNewMeal.module.css";
 import uuid from "uuid";
-import { MealCard, Search } from "../../components/index";
+import { MealCard } from "../../components/index";
 import {
   KeyboardBackspaceIcon,
-  SearchIcon
+  SearchIcon,
+  ArrowRightAltIcon
 } from "../../components/icons/icons";
 import { MealsContext } from "../../contexts/mealsContext";
+import mealPicPlaceholder from "../../images/diet.png";
 
 const AddNewMeal = props => {
   const { selectedMealObject, mealType } = useContext(MealsContext);
   const [isMealSelected, setMealSelectedBool] = useState(false);
   const [mealTypeName, setMealTypeName] = useState(mealType.toLowerCase());
   const [inputValue, setInputValue] = useState("");
+  const [isSearchOpenStatus, setSearchOpenStatus] = useState(false);
 
   useEffect(() => {
     if (selectedMealObject[0] !== undefined) {
@@ -40,12 +43,20 @@ const AddNewMeal = props => {
     goBack,
     mealTypeNameClass,
     makeMealBtn,
-    searchOrAddWrapper,
     searchInput,
     search,
-    searchIconClass
+    searchIconClass,
+    searchList,
+    searchListWrapper,
+    searchListLi,
+    searchWrapper,
+    orAddCustomWrapper,
+    image,
+    imageWrapper,
+    searchMealName,
+    searchListWrapperExpanded
   } = styles;
-
+  //  wyjebać ustawianie klasy na open searcha to sie zrenderuje//
   return (
     <div className={wrapper}>
       <div className={topBar}>
@@ -56,8 +67,8 @@ const AddNewMeal = props => {
           <p>Dodaj {mealTypeName}</p>
         </span>
       </div>
-      <div className={searchOrAddWrapper}>
-        {/* <Search /> */}
+      {/* <Search /> */}
+      <div className={searchWrapper}>
         <div className={search}>
           <input
             className={searchInput}
@@ -65,14 +76,47 @@ const AddNewMeal = props => {
             placeholder="Wyszukaj..."
             onChange={e => handleInputChange(e.target.value)}
           />
-          <span className={searchIconClass}>
+          <span className={searchIconClass} onClick={setSearchOpenStatus(true)}>
             <SearchIcon />
           </span>
         </div>
-
+        <div className={`${searchListWrapper} ${searchListWrapperExpanded}`}>
+          <ul className={searchList}>
+            <li className={searchListLi}>
+              <span className={imageWrapper}>
+                <img class={image} src={mealPicPlaceholder} alt="meal" />
+              </span>
+              <p className={searchMealName}>Nazwa posiłku</p>
+              <span className={goBack}>
+                <ArrowRightAltIcon fontSize="large" />
+              </span>
+            </li>
+            <li className={searchListLi}>
+              <span className={imageWrapper}>
+                <img class={image} src={mealPicPlaceholder} alt="meal" />
+              </span>
+              <p className={searchMealName}>Nazwa posiłku</p>
+              <span className={goBack}>
+                <ArrowRightAltIcon fontSize="large" />
+              </span>
+            </li>
+            <li className={searchListLi}>
+              <span className={imageWrapper}>
+                <img class={image} src={mealPicPlaceholder} alt="meal" />
+              </span>
+              <p className={searchMealName}>Nazwa posiłku</p>
+              <span className={goBack}>
+                <ArrowRightAltIcon fontSize="large" />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className={orAddCustomWrapper}>
         <p>lub</p>
         <button className={makeMealBtn}>Stwórz własny posiłek</button>
       </div>
+
       <div>
         {isMealSelected ? (
           <MealCard

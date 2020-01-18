@@ -12,6 +12,8 @@ import CreateIcon from "@material-ui/icons/Create";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SearchIcon from "@material-ui/icons/Search";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
+
 export {
   ControlPointIcon,
   MenuIcon,
@@ -26,5 +28,6 @@ export {
   HelpOutlineIcon,
   CreateIcon,
   DeleteIcon,
-  SearchIcon
+  SearchIcon,
+  ArrowRightAltIcon
 };
