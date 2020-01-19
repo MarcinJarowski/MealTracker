@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./MealCard.module.css";
 import uuid from "uuid";
 
@@ -26,9 +26,6 @@ const MealCard = props => {
     ingredientClass,
     fatCarbsWheyLi
   } = styles;
-  useEffect(() => {
-    console.log("heheh");
-  }, [props]);
   return (
     <div>
       <div className={mealCard}>

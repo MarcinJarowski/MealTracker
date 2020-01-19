@@ -105,7 +105,7 @@ const Navbar = props => {
               <span className={menuItemIcon}>
                 <ShoppingCartIcon fontSize="large" />
               </span>
-              <p className={menuItemName}>Zakupy</p>
+              <p className={menuItemName}>Moje zakupy</p>
             </NavLink>
           </li>
           <li>

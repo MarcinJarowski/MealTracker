@@ -12,24 +12,31 @@ import { MealsContext } from "../../contexts/mealsContext";
 import mealPicPlaceholder from "../../images/diet.png";
 
 const AddNewMeal = props => {
-  const { selectedMealObject, mealType } = useContext(MealsContext);
+  const {
+    mealType,
+    mealsArrayByMealTime,
+    findSelectedInMealSearchFromAllMeals,
+    selectedFromSearch
+  } = useContext(MealsContext);
   const [isMealSelected, setMealSelectedBool] = useState(false);
+  //ogarnąć usuwanie stanu wybranego posiłku na klika wstecz
   const [mealTypeName, setMealTypeName] = useState(mealType.toLowerCase());
   const [inputValue, setInputValue] = useState("");
   const [isSearchOpenStatus, setSearchOpenStatus] = useState(false);
 
   useEffect(() => {
-    if (selectedMealObject[0] !== undefined) {
+    console.log(selectedFromSearch);
+    console.log(isMealSelected);
+    if (selectedFromSearch && isMealSelected == false) {
       setMealSelectedBool(true);
     }
-  }, [selectedMealObject]);
-
+  }, [selectedFromSearch]);
+  // console.log(isMealSelected);
   useEffect(() => {
     if (mealType.toLowerCase() === "kolacja") {
       setMealTypeName("kolację");
     }
   }, [mealType]);
-  // console.log(mealTypeName);
   const handleBackArrowClick = event => {
     return props.history.goBack();
   };
@@ -39,8 +46,10 @@ const AddNewMeal = props => {
   const handleSearchOpenStatus = () => {
     setSearchOpenStatus(!isSearchOpenStatus);
   };
-  const handleForwardArrowClick = () => {
+  const handleForwardArrowClick = id => {
+    console.log(id);
     setSearchOpenStatus(!isSearchOpenStatus);
+    findSelectedInMealSearchFromAllMeals(id);
   };
   const {
     wrapper,
@@ -79,7 +88,7 @@ const AddNewMeal = props => {
             className={searchInput}
             value={inputValue}
             placeholder="Wyszukaj..."
-            onChange={e => handleInputChange(e.target.value)}
+            onChange={e => e.preventDefault()}
             onClick={() =>
               !isSearchOpenStatus ? handleSearchOpenStatus() : null
             }
@@ -97,18 +106,24 @@ const AddNewMeal = props => {
           }
         >
           <ul className={searchList}>
-            <li className={searchListLi}>
-              <span className={imageWrapper}>
-                <img class={image} src={mealPicPlaceholder} alt="meal" />
-              </span>
-              <p className={searchMealName}>Nazwa posiłku</p>
-              <span
-                className={goBack}
-                onClick={() => handleForwardArrowClick()}
-              >
-                <ArrowRightAltIcon fontSize="large" />
-              </span>
-            </li>
+            {mealsArrayByMealTime.map(meal => {
+              const { mealName, kcalValue, id } = meal;
+              const mealNameMaxChar = mealName.slice(0, 14);
+              return (
+                <li className={searchListLi} key={uuid()}>
+                  <span className={imageWrapper}>
+                    <img class={image} src={mealPicPlaceholder} alt="meal" />
+                  </span>
+                  <p className={searchMealName}>{mealNameMaxChar}...</p>
+                  <span
+                    className={goBack}
+                    onClick={() => handleForwardArrowClick(id)}
+                  >
+                    <ArrowRightAltIcon fontSize="large" />
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -121,10 +136,10 @@ const AddNewMeal = props => {
         {isMealSelected ? (
           <MealCard
             key={uuid()}
-            mealName={selectedMealObject[0].mealName}
-            ingredientsArray={selectedMealObject[0].ingredientsArray}
-            percetageArray={selectedMealObject[0].percetageArray}
-            kcalValue={selectedMealObject[0].kcalValue}
+            mealName={selectedFromSearch.mealName}
+            ingredientsArray={selectedFromSearch.ingredientsArray}
+            percetageArray={selectedFromSearch.percetageArray}
+            kcalValue={selectedFromSearch.kcalValue}
           />
         ) : (
           <MealCard />

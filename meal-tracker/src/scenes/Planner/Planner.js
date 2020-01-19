@@ -14,8 +14,6 @@ import { MealsContext } from "../../contexts/mealsContext";
 
 const Planner = props => {
   const { setMealType, mealTypesNames } = useContext(MealsContext);
-  console.log(props);
-  console.log(mealTypesNames);
   const handleEditClick = mealTypeName => {
     props.history.push(props.location.pathname + "/pora-posilku");
     setMealType(mealTypeName);
